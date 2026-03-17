@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://de2gkpm1yt47w"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_efsrm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nigoq"]
+size = Vector2(13, 162)
+
+[node name="BarraIzquierda" type="CharacterBody2D" unique_id=8602140]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1455940940]
+position = Vector2(4.5000005, 81)
+scale = Vector2(13, 162)
+texture = SubResource("CanvasTexture_efsrm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1595799112]
+position = Vector2(4.5, 81)
+shape = SubResource("RectangleShape2D_nigoq")
