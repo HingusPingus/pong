@@ -6,10 +6,6 @@ size = Vector2(1152, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4orn"]
 size = Vector2(1152, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxkfk"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctahk"]
-
 [node name="Paredes" type="StaticBody2D" unique_id=2006869491]
 
 [node name="Arriba" type="CollisionShape2D" parent="." unique_id=294402739]
@@ -19,13 +15,3 @@ shape = SubResource("RectangleShape2D_rt2e3")
 [node name="Abajo" type="CollisionShape2D" parent="." unique_id=1251814939]
 position = Vector2(576, 648)
 shape = SubResource("RectangleShape2D_v4orn")
-
-[node name="Izquierda" type="Area2D" parent="." unique_id=1975370181]
-
-[node name="paredIzquierda" type="CollisionShape2D" parent="Izquierda" unique_id=2020897262]
-shape = SubResource("RectangleShape2D_dxkfk")
-
-[node name="Derecha" type="Area2D" parent="." unique_id=606688213]
-
-[node name="paredDerecha" type="CollisionShape2D" parent="Derecha" unique_id=1559125200]
-shape = SubResource("RectangleShape2D_ctahk")

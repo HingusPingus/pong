@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://cndojif5gmj3c"]
+
+[ext_resource type="Script" uid="uid://bpc5oqo57i100" path="res://Scripts/pong.gd" id="1_7eeor"]
+[ext_resource type="PackedScene" uid="uid://de2gkpm1yt47w" path="res://Scenes/BarraIzquierda.tscn" id="1_mcp0t"]
+[ext_resource type="Script" uid="uid://dpj0coi0dsel5" path="res://Scripts/barras.gd" id="2_7eeor"]
+[ext_resource type="PackedScene" uid="uid://y31u3om0i4x4" path="res://Scenes/Pelota.tscn" id="3_t0kp4"]
+[ext_resource type="Script" uid="uid://dl3hxsc2i20rb" path="res://Scripts/ball.gd" id="4_1ru1u"]
+[ext_resource type="PackedScene" uid="uid://gppleela1qgb" path="res://Scenes/paredes.tscn" id="5_nguve"]
+[ext_resource type="PackedScene" uid="uid://ct4va1ob2vx6u" path="res://Scenes/paredIzquierda.tscn" id="6_0pu6f"]
+[ext_resource type="FontFile" uid="uid://bdswuaju1bs0n" path="res://assets/PixelifySans-Regular.ttf" id="7_f5pev"]
+[ext_resource type="AudioStream" uid="uid://bddffu3v8ryj4" path="res://assets/404769__owlstorm__retro-video-game-sfx-bounce.wav" id="9_t0kp4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7eeor"]
+bg_color = Color(0, 0, 0, 0.6156863)
+
+[node name="Pong2Player" type="Node2D" unique_id=1227275110]
+script = ExtResource("1_7eeor")
+
+[node name="BarraIzquierda" parent="." unique_id=8602140 instance=ExtResource("1_mcp0t")]
+position = Vector2(50, 324)
+collision_layer = 129
+collision_mask = 129
+platform_floor_layers = 4294967040
+script = ExtResource("2_7eeor")
+up = "W_up"
+down = "S_down"
+
+[node name="BarraDerecha" parent="." unique_id=1905162296 instance=ExtResource("1_mcp0t")]
+position = Vector2(1087, 324)
+collision_layer = 129
+collision_mask = 129
+platform_floor_layers = 4294967040
+script = ExtResource("2_7eeor")
+up = "ui_up"
+down = "ui_down"
+
+[node name="Pelota" parent="." unique_id=1945091875 instance=ExtResource("3_t0kp4")]
+position = Vector2(576, 324)
+collision_mask = 129
+script = ExtResource("4_1ru1u")
+
+[node name="Paredes" parent="." unique_id=2006869491 instance=ExtResource("5_nguve")]
+collision_layer = 128
+
+[node name="paredIzquierda" parent="." unique_id=780401065 instance=ExtResource("6_0pu6f")]
+collision_layer = 2
+
+[node name="paredDerecha" parent="." unique_id=1366743321 instance=ExtResource("6_0pu6f")]
+position = Vector2(1176, 0)
+collision_layer = 2
+
+[node name="hud" type="CanvasLayer" parent="." unique_id=1705536470]
+
+[node name="puntajeI" type="Label" parent="hud" unique_id=2086785262]
+offset_left = 460.0
+offset_top = 15.0
+offset_right = 504.0
+offset_bottom = 105.0
+theme_override_fonts/font = ExtResource("7_f5pev")
+theme_override_font_sizes/font_size = 75
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="puntajeD" type="Label" parent="hud" unique_id=1392206930]
+offset_left = 648.0
+offset_top = 15.0
+offset_right = 692.0
+offset_bottom = 105.0
+theme_override_fonts/font = ExtResource("7_f5pev")
+theme_override_font_sizes/font_size = 75
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="." unique_id=2132756910]
+one_shot = true
+autostart = true
+
+[node name="MenuPausa" type="CanvasLayer" parent="." unique_id=1386832108]
+process_mode = 3
+
+[node name="Panel" type="Panel" parent="MenuPausa" unique_id=1113885317]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7eeor")
+metadata/_edit_use_anchors_ = true
+
+[node name="pausa" type="Label" parent="MenuPausa/Panel" unique_id=467447399]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -105.5
+offset_top = 64.0
+offset_right = 105.5
+offset_bottom = 149.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("7_f5pev")
+theme_override_font_sizes/font_size = 70
+text = "Pausa"
+metadata/_edit_use_anchors_ = true
+
+[node name="reanudar" type="Button" parent="MenuPausa/Panel" unique_id=568898704]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.47916666
+anchor_top = 0.5
+anchor_right = 0.5208333
+anchor_bottom = 0.5185185
+offset_left = -75.5
+offset_top = -92.0
+offset_right = 75.5
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_f5pev")
+theme_override_font_sizes/font_size = 40
+text = "Reanudar"
+metadata/_edit_use_anchors_ = true
+
+[node name="menuPrincipal" type="Button" parent="MenuPausa/Panel" unique_id=81453931]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4700521
+anchor_top = 0.48765433
+anchor_right = 0.52994794
+anchor_bottom = 0.50617284
+offset_left = -107.5
+offset_top = 44.0
+offset_right = 107.5
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_f5pev")
+theme_override_font_sizes/font_size = 40
+text = "Menu principal"
+metadata/_edit_use_anchors_ = true
+
+[node name="rebote" type="AudioStreamPlayer2D" parent="." unique_id=1152126797]
+stream = ExtResource("9_t0kp4")
+
+[connection signal="body_entered" from="paredIzquierda" to="." method="_on_pared_izquierda_body_entered"]
+[connection signal="body_entered" from="paredDerecha" to="." method="_on_pared_derecha_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="MenuPausa/Panel/reanudar" to="." method="_on_reanudar_pressed"]
+[connection signal="pressed" from="MenuPausa/Panel/menuPrincipal" to="." method="_on_menu_principal_pressed"]
